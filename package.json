@@ -37,11 +37,13 @@
     "@hope-ui/solid": "^0.6.7",
     "@stitches/core": "^1.2.8",
     "@suid/icons-material": "^0.9.0",
+    "@tailwindcss/vite": "^4.1.17",
     "@tanstack/router-plugin": "^1.139.10",
     "@tanstack/solid-router": "^1.139.10",
     "normalize.css": "^8.0.1",
     "solid": "^0.2.1",
     "solid-js": "^1.9.10",
-    "solid-transition-group": "^0.3.0"
+    "solid-transition-group": "^0.3.0",
+    "tailwindcss": "^4.1.17"
   }
 }

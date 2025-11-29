@@ -11,7 +11,7 @@ import {
     Show,
 } from 'solid-js';
 
-import { Printers } from '../../../models/Printers';
+import { Printers } from '../models/Printers';
 
 interface PrintQueueProps {
     printers: Printers;

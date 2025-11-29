@@ -1,17 +1,18 @@
-import {
-    Flex,
-    Grid,
-} from '@hope-ui/solid';
+import { Grid, Flex } from '@hope-ui/solid';
+import { createFileRoute } from '@tanstack/solid-router'
 import { createSignal } from 'solid-js';
+import { Card } from '../components/Card';
+import { MultipleSelector } from '../components/MultipleSelector';
+import { PrintablesList } from '../components/PrintablesList';
+import { useGame } from '../hooks/useGame';
+import { PrintQueue } from '../components/PrintQueue';
 
-import { Card } from '../../components/Card';
-import { MultipleSelector } from '../../components/MultipleSelector';
-import { PrintablesList } from '../../components/PrintablesList';
-import { useGame } from '../../hooks/useGame';
-import { PrintQueue } from './internal/PrintQueue';
+export const Route = createFileRoute('/satellite')({
+  component: RouteComponent,
+})
 
-export const SatellitePage = () => {
-    const { satellite } = useGame();
+function RouteComponent() {
+  const { satellite } = useGame();
     const [ printableCount, setPrintableCount ] = createSignal(1);
 
     return <Grid
@@ -44,4 +45,4 @@ export const SatellitePage = () => {
             <PrintQueue printers={satellite.printers} />
         </Card>
     </Grid>;
-};
+}

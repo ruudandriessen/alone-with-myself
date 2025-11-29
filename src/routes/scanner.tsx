@@ -1,14 +1,15 @@
-import {
-    Button,
-    Grid,
-} from '@hope-ui/solid';
+import { createFileRoute } from '@tanstack/solid-router'
+import { useGame } from '../hooks/useGame';
+import { Grid, Button } from '@hope-ui/solid';
 import { For } from 'solid-js';
+import { Card } from '../components/Card';
+import { ResourceIndicator } from '../components/ResourceIndicator';
 
-import { Card } from '../../components/Card';
-import { ResourceIndicator } from '../../components/ResourceIndicator';
-import { useGame } from '../../hooks/useGame';
+export const Route = createFileRoute('/scanner')({
+  component: RouteComponent,
+})
 
-export const ScannerPage = () => {
+function RouteComponent() {
     const { satellite } = useGame();
 
     return <Grid
@@ -36,4 +37,4 @@ export const ScannerPage = () => {
             </For>
         </Card>
     </Grid>;
-};
+}

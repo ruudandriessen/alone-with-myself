@@ -11,10 +11,10 @@ export const Route = createFileRoute('/scanner')({
 function RouteComponent() {
     const { satellite } = useGame();
 
-    return <div class="grid grid-cols-3 gap-2 p-2 max-h-full w-full">
+    return <div class="flex flex-col lg:grid lg:grid-cols-3 gap-2 w-full h-full">
         <Card title="Operations">
             <button
-                class="border border-blue-500 text-blue-500 hover:bg-blue-500/10 px-4 py-2 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+                class="border border-blue-500 text-blue-500 hover:bg-blue-500/10 px-4 py-2 rounded disabled:opacity-50 disabled:cursor-not-allowed w-full"
                 disabled={satellite.scanStatus.scanning}
                 onClick={satellite.startScan}
             >

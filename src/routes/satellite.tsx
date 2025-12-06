@@ -14,7 +14,7 @@ function RouteComponent() {
   const { satellite } = useGame();
     const [ printableCount, setPrintableCount ] = createSignal(1);
 
-    return <div class="grid grid-cols-2 gap-2 p-2 max-h-full w-full">
+    return <div class="flex flex-col md:grid md:grid-cols-2 gap-2 w-full h-full">
         <Card title="Printer control">
             <div class="flex flex-col gap-3">
                 <MultipleSelector

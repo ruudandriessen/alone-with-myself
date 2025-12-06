@@ -9,7 +9,7 @@ interface ResourceSetSummaryProps {
 }
 
 export const MaterialsSummary = (props: ResourceSetSummaryProps) => {
-    return <div class="flex gap-2">
+    return <div class="flex flex-wrap gap-2 justify-center sm:justify-start">
         <FormatMass
             amount={props.materials.mass}
             change={props.change?.mass}

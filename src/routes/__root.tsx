@@ -8,11 +8,13 @@ import { IntlProvider } from '../pages/IntlProvider';
 
 const RootLayout = () => (
     <IntlProvider locale="en-US">
-        <div class="flex flex-col">
+        <div class="flex flex-col h-screen">
             <HeaderNavigation />
-            <div class="flex gap-2 p-2 h-full">
+            <div class="flex flex-col-reverse md:flex-row gap-2 p-2 pb-0 md:pb-2 flex-1 overflow-hidden">
                 <NavigationRail />
-                <Outlet />
+                <div class="flex-1 overflow-auto p-2 md:p-0">
+                    <Outlet />
+                </div>
             </div>
         </div>
     </IntlProvider>

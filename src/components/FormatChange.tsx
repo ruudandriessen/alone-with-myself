@@ -1,5 +1,3 @@
-import { Text } from '@hope-ui/solid';
-
 import { FormatNumber } from './FormatNumber';
 
 interface FormatMassProps {
@@ -7,17 +5,15 @@ interface FormatMassProps {
 }
 
 export const FormatChange = (props: FormatMassProps) => {
-    const color = () => props.value > 0 ? '$success10' : '$danger10';
+    const color = () => props.value > 0 ? 'text-green-500' : 'text-red-500';
 
     return (
-        <Text
-            color={color()}
-        >
+        <span class={color()}>
             ({props.value! > 0 ? '+' : ''}
             <FormatNumber
                 value={props.value!}
                 compact
             />)
-        </Text>
+        </span>
     );
 };

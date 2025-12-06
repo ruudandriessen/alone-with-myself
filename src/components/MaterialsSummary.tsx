@@ -1,5 +1,3 @@
-import { Flex } from '@hope-ui/solid';
-
 import { Materials } from '../models/types/Materials';
 import { FormatMass } from './FormatMass';
 import { FormatPower } from './FormatPower';
@@ -11,7 +9,7 @@ interface ResourceSetSummaryProps {
 }
 
 export const MaterialsSummary = (props: ResourceSetSummaryProps) => {
-    return <Flex gap="$2">
+    return <div class="flex gap-2">
         <FormatMass
             amount={props.materials.mass}
             change={props.change?.mass}
@@ -22,5 +20,5 @@ export const MaterialsSummary = (props: ResourceSetSummaryProps) => {
             change={props.change?.power}
             disabled={props.disabled}
         />
-    </Flex>;
+    </div>;
 };

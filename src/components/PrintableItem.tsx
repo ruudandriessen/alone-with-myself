@@ -1,5 +1,3 @@
-import { Flex } from '@hope-ui/solid';
-
 import { PrintableInstance } from '../models/PrintableUnion';
 import { Printers } from '../models/Printers';
 import { Materials } from '../models/types/Materials';
@@ -36,7 +34,7 @@ export const PrintableItem = (props: PrintableItemProps) => {
             });
         }}
     >
-        <Flex direction='row' gap='$2' alignItems='center'>
+        <div class="flex flex-row gap-2 items-center">
             {`${props.printable.id} (${props.printable.amount})`}
 
             <VerticalDivider />
@@ -45,6 +43,6 @@ export const PrintableItem = (props: PrintableItemProps) => {
                 disabled={disabled()}
                 materials={materialCost()}
             />
-        </Flex>
+        </div>
     </Button>;
 };

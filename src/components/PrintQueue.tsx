@@ -1,12 +1,4 @@
 import {
-    Flex,
-    List,
-    ListItem,
-    Progress,
-    ProgressIndicator,
-    Text,
-} from '@hope-ui/solid';
-import {
     For,
     Show,
 } from 'solid-js';
@@ -18,29 +10,26 @@ interface PrintQueueProps {
 }
 
 export const PrintQueue = (props: PrintQueueProps) => {
-    return <List
-        gap='$2'
-        overflow='scroll'
-    >
+    return <ul class="flex flex-col gap-2 overflow-scroll">
         <For each={props.printers.tasks}>
-            {task => <ListItem>
-                <Flex gap='$2' >
-                    <Text color='$info9'>
+            {task => <li class="list-none">
+                <div class="flex gap-2">
+                    <span class="text-blue-400">
                         {task.count}
-                    </Text>
-                    <Text>
+                    </span>
+                    <span>
                         {task.printable.id}
-                    </Text>
-                </Flex>
+                    </span>
+                </div>
                 <Show when={task.progressPercentage > 0}>
-                    <Progress
-                        size="xs"
-                        value={task.progressPercentage * 100}
-                    >
-                        <ProgressIndicator />
-                    </Progress>
+                    <div class="w-full bg-gray-700 rounded-full h-1">
+                        <div
+                            class="bg-blue-500 h-1 rounded-full transition-all"
+                            style={`width: ${task.progressPercentage * 100}%`}
+                        />
+                    </div>
                 </Show>
-            </ListItem>}
+            </li>}
         </For>
-    </List>;
+    </ul>;
 };

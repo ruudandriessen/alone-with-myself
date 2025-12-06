@@ -1,7 +1,6 @@
 import { createFileRoute } from '@tanstack/solid-router'
 import { useGame } from '../hooks/useGame';
-import { Grid, Button } from '@hope-ui/solid';
-import { For } from 'solid-js';
+import { For, Show } from 'solid-js';
 import { Card } from '../components/Card';
 import { ResourceIndicator } from '../components/ResourceIndicator';
 
@@ -12,23 +11,20 @@ export const Route = createFileRoute('/scanner')({
 function RouteComponent() {
     const { satellite } = useGame();
 
-    return <Grid
-        gap="$2"
-        padding="$2"
-        templateColumns="repeat(3, 1fr)"
-        templateRows="1fr"
-        maxH="100%"
-        width="100%"
-    >
+    return <div class="grid grid-cols-3 gap-2 p-2 max-h-full w-full">
         <Card title="Operations">
-            <Button
-                loading={satellite.scanStatus.scanning}
+            <button
+                class="border border-blue-500 text-blue-500 hover:bg-blue-500/10 px-4 py-2 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={satellite.scanStatus.scanning}
                 onClick={satellite.startScan}
-                loadingText={`Scanning... (${Math.round(satellite.scanStatus.progress)}%)`}
-                variant="outline"
             >
-            Scan area
-            </Button>
+                <Show
+                    when={satellite.scanStatus.scanning}
+                    fallback="Scan area"
+                >
+                    {`Scanning... (${Math.round(satellite.scanStatus.progress)}%)`}
+                </Show>
+            </button>
         </Card>
 
         <Card title="Discovered resources">
@@ -36,5 +32,5 @@ function RouteComponent() {
                 {resource => <ResourceIndicator resource={resource} />}
             </For>
         </Card>
-    </Grid>;
+    </div>;
 }

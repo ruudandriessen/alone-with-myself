@@ -1,4 +1,3 @@
-import { Flex } from '@hope-ui/solid';
 import { For } from 'solid-js';
 
 import { PrintableInstance } from '../models/PrintableUnion';
@@ -15,10 +14,7 @@ interface PrintableSummaryProps {
 }
 
 export const PrintablesList = (props: PrintableSummaryProps) => {
-    return <Flex
-        flexDirection='column'
-        gap='$2'
-    >
+    return <div class="flex flex-col gap-2">
         <For each={props.printables}>
             {printable => <PrintableItem
                 printableCount={props.printableCount}
@@ -28,5 +24,5 @@ export const PrintablesList = (props: PrintableSummaryProps) => {
                 printers={props.printers}
             />}
         </For>
-    </Flex>;
+    </div>;
 };

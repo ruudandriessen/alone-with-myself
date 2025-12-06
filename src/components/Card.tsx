@@ -1,7 +1,3 @@
-import {
-    Flex,
-    Heading,
-} from '@hope-ui/solid';
 import { JSX } from 'solid-js';
 
 interface CardProps {
@@ -10,16 +6,10 @@ interface CardProps {
 }
 
 export const Card = (props: CardProps) => {
-    return <Flex
-        direction={'column'}
-        gap='$2'
-        borderWidth="1px"
-        borderColor="$neutral6"
-        padding='$4'
-    >
-        <Heading level="6">
+    return <div class="flex flex-col gap-2 border border-gray-600 p-4">
+        <h6 class="text-lg font-semibold">
             {props.title}
-        </Heading>
+        </h6>
         {props.children}
-    </Flex>;
+    </div>;
 };

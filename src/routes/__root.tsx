@@ -1,4 +1,3 @@
-import { Flex, HopeProvider } from '@hope-ui/solid';
 import {
     createRootRoute,
     Outlet,
@@ -8,25 +7,15 @@ import { NavigationRail } from '../components/NavigationRail';
 import { IntlProvider } from '../pages/IntlProvider';
 
 const RootLayout = () => (
-    <>
-        <HopeProvider config={{
-             initialColorMode: 'system'
-        }}>
-            <IntlProvider locale="en-US">
-                <Flex direction={'column'}>
-                    <HeaderNavigation />
-                    <Flex
-                        padding="$2"
-                        gap='$2'
-                        height={'100%'}
-                    >
-                        <NavigationRail />
-                        <Outlet />
-                    </Flex>
-                </Flex>
-            </IntlProvider>
-        </HopeProvider>
-    </>
+    <IntlProvider locale="en-US">
+        <div class="flex flex-col">
+            <HeaderNavigation />
+            <div class="flex gap-2 p-2 h-full">
+                <NavigationRail />
+                <Outlet />
+            </div>
+        </div>
+    </IntlProvider>
 );
 
 export const Route = createRootRoute({ component: RootLayout });

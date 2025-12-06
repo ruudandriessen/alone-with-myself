@@ -1,4 +1,3 @@
-import { Text } from '@hope-ui/solid';
 import MassIcon from '@suid/icons-material/CycloneOutlined';
 import { Show } from 'solid-js';
 
@@ -12,10 +11,10 @@ interface FormatMassProps {
 }
 
 export const FormatMass = (props: FormatMassProps) => {
-    const color = () => props.disabled ? '$neutral7' : '$info10';
+    const color = () => props.disabled ? 'text-gray-500' : 'text-blue-400';
 
     return (
-        <Text color={color()} display="flex" alignItems='center'>
+        <span class={`${color()} flex items-center`}>
             <FormatNumber
                 value={props.amount}
                 compact
@@ -27,6 +26,6 @@ export const FormatMass = (props: FormatMassProps) => {
                     value={props.change!}
                 />
             </Show>
-        </Text>
+        </span>
     );
 };

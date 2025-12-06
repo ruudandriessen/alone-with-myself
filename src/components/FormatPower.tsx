@@ -1,4 +1,3 @@
-import { Text } from '@hope-ui/solid';
 import BoltIcon from '@suid/icons-material/BoltOutlined';
 import { Show } from 'solid-js';
 
@@ -12,10 +11,10 @@ interface FormatPowerProps {
 }
 
 export const FormatPower = (props: FormatPowerProps) => {
-    const color = () => props.disabled ? '$neutral7' : 'yellow';
+    const color = () => props.disabled ? 'text-gray-500' : 'text-yellow-500';
 
     return (
-        <Text color={color()} display="flex" alignItems='center'>
+        <span class={`${color()} flex items-center`}>
             <FormatNumber
                 value={props.amount}
                 compact
@@ -27,6 +26,6 @@ export const FormatPower = (props: FormatPowerProps) => {
                     value={props.change!}
                 />
             </Show>
-        </Text>
+        </span>
     );
 };

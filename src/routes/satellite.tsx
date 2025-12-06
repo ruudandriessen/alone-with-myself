@@ -1,4 +1,3 @@
-import { Grid, Flex } from '@hope-ui/solid';
 import { createFileRoute } from '@tanstack/solid-router'
 import { createSignal } from 'solid-js';
 import { Card } from '../components/Card';
@@ -15,19 +14,9 @@ function RouteComponent() {
   const { satellite } = useGame();
     const [ printableCount, setPrintableCount ] = createSignal(1);
 
-    return <Grid
-        gap="$2"
-        padding="$2"
-        templateColumns="repeat(2, 1fr)"
-        templateRows="1fr"
-        maxH="100%"
-        width="100%"
-    >
+    return <div class="grid grid-cols-2 gap-2 p-2 max-h-full w-full">
         <Card title="Printer control">
-            <Flex
-                direction='column'
-                gap='$3'
-            >
+            <div class="flex flex-col gap-3">
                 <MultipleSelector
                     onChange={setPrintableCount}
                     value={printableCount()}
@@ -39,10 +28,10 @@ function RouteComponent() {
                     spentMass={satellite.spentMass}
                     printers={satellite.printers}
                 />
-            </Flex>
+            </div>
         </Card>
         <Card title="Print queue">
             <PrintQueue printers={satellite.printers} />
         </Card>
-    </Grid>;
+    </div>;
 }

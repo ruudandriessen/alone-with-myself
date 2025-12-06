@@ -1,4 +1,3 @@
-import { Button as HopeUiButton } from '@hope-ui/solid';
 import { JSX } from 'solid-js';
 
 type ButtonProps = {
@@ -10,14 +9,11 @@ type ButtonProps = {
 };
 
 export const Button = (props: ButtonProps) => {
-    return <HopeUiButton
-        variant={'outline'}
+    return <button
+        class={`border border-blue-500 text-blue-500 hover:bg-blue-500/10 h-14 px-4 rounded disabled:opacity-50 disabled:cursor-not-allowed ${props.fullWidth ? 'w-full' : ''}`}
         onClick={props.onClick}
-        color="primary"
-        height="$14"
         disabled={props.disabled}
-        fullWidth={props.fullWidth}
     >
         {props.children}
-    </HopeUiButton>;
+    </button>;
 };

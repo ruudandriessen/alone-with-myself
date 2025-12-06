@@ -1,9 +1,3 @@
-import {
-    Flex,
-    Heading,
-    Text,
-} from '@hope-ui/solid';
-
 import { useGame } from '../hooks/useGame';
 import { MaterialsSummary } from './MaterialsSummary';
 import { VerticalDivider } from './VerticalDivider';
@@ -13,24 +7,17 @@ export const HeaderNavigation = () => {
     const explored = () => satellite.exploredArea / satellite.totalArea;
 
     return (
-        <Flex
-            padding="$2 $4 0 $4"
-            direction='column'
-            verticalAlign={'center'}
-        >
-            <Flex
-                gap="$2"
-                alignItems={'center'}
-            >
-                <Heading level="6">{satellite.name}</Heading>
+        <div class="flex flex-col p-2 px-4 pt-2 items-center">
+            <div class="flex gap-2 items-center">
+                <h6 class="text-lg font-semibold">{satellite.name}</h6>
                 <VerticalDivider />
-                <Text>{`Explored area: ${explored()}%`}</Text>
-            </Flex>
+                <span>{`Explored area: ${explored()}%`}</span>
+            </div>
 
             <MaterialsSummary
                 materials={satellite.materials}
                 change={satellite.estimatedProduction}
             />
-        </Flex>
+        </div>
     );
 };
